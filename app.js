@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const connect = require('./database/connect')
 const gauth = require("./routes/gAuth.routes")
+const userRoutes = require('./routes/user.routes')
 
 
 dotenv.config()
@@ -13,6 +14,7 @@ const port = 3000 || process.env.PORT
 connect()
 
 app.use('/', gauth)
+app.use('/api/user', userRoutes)
 
 
 
