@@ -69,9 +69,24 @@ const login = async (req, res) => {
     }
 }
 
+const getProfile = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        if (!user) {
+            return res.status(400).json({ message: 'User does not exist' });
+        }
+        res.status(200).json({ user });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ message: error });
+    }
+}; 
+
 module.exports = {
     register,
-    login
+    login,
+    getProfile
 }; 
 
 
