@@ -9,6 +9,7 @@ const storage = require('./storage/storage')
 const multer = require('multer')
 const upload = multer({ storage });
 
+const postRoutes = require('./routes/post.routes')
 dotenv.config()
 const app = express()
 app.use(express.json())
@@ -20,6 +21,7 @@ app.use(cookieParser())
 
 app.use('/', gauth)
 app.use('/api/user', userRoutes)
+app.use('/api/p', postRoutes)
 
 
 

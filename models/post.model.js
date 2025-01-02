@@ -45,7 +45,7 @@ const postSchema = new mongoose.Schema(
       enum: ['open', 'in_progress', 'completed', 'canceled'], // Current status of the post
       default: 'open',
     },
-    responses: [
+    responses: {type: [
       {
         teacher: {
           type: mongoose.Schema.Types.ObjectId, // Teacher responding to the post
@@ -64,7 +64,8 @@ const postSchema = new mongoose.Schema(
           default: Date.now, // Timestamp of the response
         },
       },
-    ],
+    
+    ],default: []},
    
   },
   {

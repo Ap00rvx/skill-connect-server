@@ -75,7 +75,7 @@ const getProfile = async (req, res) => {
         if (!user) {
             return res.status(400).json({ message: 'User does not exist' });
         }
-        res.status(200).json({ user : user.select('-password') });
+        res.status(200).json({ user : user });
     }
     catch (error) {
         console.error(error);
@@ -150,7 +150,7 @@ const verifyUser = async (req,res) => {
         res.status(500).send({ message: err });
     }
 }
-    
+
 
 module.exports = {
     register,
