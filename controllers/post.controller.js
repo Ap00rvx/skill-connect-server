@@ -101,7 +101,7 @@ const respondToPost = async (req, res) => {
 const getResponses = async (req, res) => {
     const { id } = req.params;
     try {
-        const post = await Post.findById(id).populate('responses');
+        const post = await Post.findById(id).populate('responses.teacher');
         if (!post) {
             return res.status(400).json({ message: 'Post does not exist' });
         }
